@@ -1,0 +1,64 @@
+%banner {
+    background-color: $color_white;
+    width: 100%;
+    max-width: 1200px;
+    padding: 16px 24px;
+    display: flex;
+    position: relative;
+  }
+ 
+%Advertising {
+  content: "Advertising";
+  position: absolute;
+  font-family: var(--main-font-open-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: right;
+  color: $color_grey;
+  right: 0;
+}
+
+%banner__text{
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+align-items: center;
+flex: 1 1 auto;
+}
+
+%LearnMore{
+    width: 100%;
+    max-width: 156px;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    text-align: center;
+    color: $color_white;
+    border: none;
+    cursor: pointer;
+    flex: 1 1 156px;
+    margin-left: 15px;
+}
+
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin margin-padding-0 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@mixin lighten-grey-40{
+  background-color: lighten($color_grey, 40%);
+  transition: 0.5s;
+  &:hover{
+    background-color: lighten($color_grey, 20%);
+  }
+}

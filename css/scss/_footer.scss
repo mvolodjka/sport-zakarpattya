@@ -1,0 +1,11 @@
+.footer {
+    width: 100%;
+    position: relative;
+    min-height: 150px;
+    background-color: $color_black;
+    background-image: url('../images/footer.svg');
+    border-top: 2px solid lighten($color_black, 10%);
+    margin-top: 25px;
+    padding: 25px;
+    flex-shrink: 0;
+}

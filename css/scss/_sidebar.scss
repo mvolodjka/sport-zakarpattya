@@ -1,0 +1,8 @@
+.sidebar-right {
+    max-width: var(--main-sidebar-max-width);
+    background-color: lighten($color_orange, 35%);
+    flex: 0 0 var(--main-sidebar-max-width);
+    margin-left: var(--main-margin-left-sidebar-maket);
+    margin-top: var(--main-margin-top-sidebar-maket);
+    
+}

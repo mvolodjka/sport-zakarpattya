@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+@import "_vars";
+@import "_fonts";
+
+:root {
+    --main-font-open-sans: "Open Sans", sans-serif, Arial;
+    --main-font-arial: Arial, sans-serif;
+    --main-margin-top-sidebar-maket: 25px;
+    --main-margin-left-sidebar-maket: 25px;
+    --main-sidebar-max-width: 300px;
+}
+
+body {
+    font-family: var(--main-font-open-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $color_black;
+    background-color: #E5E5E5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 1 auto;
+    margin-top: var(--main-margin-top-sidebar-maket);
+    max-width: calc(100% - var(--main-sidebar-max-width) - var(--main-margin-left-sidebar-maket));
+    overflow: hidden;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+.section {
+    background-color: #fff;
+    position: relative;
+    padding: 15px;
+}
+
+
+@import "_template";
+@import "_general_WP";
+@import "_header";
+@import "_nav";
+@import "_sidebar";
+@import "_footer.scss";
+@import "_post";
+@import "_essays";
+@import "_essays_home";
+@import "_slider";
+
+@media (max-width: 576px) {
+    @import "_media";
+}

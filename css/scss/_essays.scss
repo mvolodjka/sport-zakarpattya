@@ -1,0 +1,15 @@
+.date-of-birth>div {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	transition: 0.5s;
+	border-bottom: 1px solid $color_grey;
+
+	&:hover {
+		background-color: lighten($color_grey, 20%);
+	}
+}
+.essays-label {
+	font-weight: bold;
+	display: inline-block;
+	width: 50%;
+}
