@@ -1,0 +1,42 @@
+.exclusive-sidebar {
+    .zag-sidebar {
+        background-color: $color_blue;
+        margin-bottom: 15px;
+        padding: 10px;
+        color: $color_white;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: calc(100% + 24px);
+        margin-left: -12px;
+    }
+
+    .exclusive__link-to-the-post {
+        display: block;
+        border-bottom: 1px solid $color_black;
+        clear: both;
+        display: table;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #212121;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .exclusive__link__img {
+        display: table;
+        max-width: 70px;
+        width: 100%;
+        float: left;
+        margin-right: 10px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}

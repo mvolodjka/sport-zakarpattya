@@ -38,9 +38,13 @@ wp_enqueue_script('jquery');
 //     }
 // }
 
+add_image_size('70x100', 70, 100, true);
+
+
 // отключение генерируемых размеров изображений
-function shapeSpace_disable_image_sizes($sizes) {
-	
+function shapeSpace_disable_image_sizes($sizes)
+{
+
 	// unset($sizes['thumbnail']);    // отключение миниатюр
 	unset($sizes['medium']);       // отключение среднего размера
 	// unset($sizes['large']);        // отключение большого размера
@@ -48,7 +52,6 @@ function shapeSpace_disable_image_sizes($sizes) {
 	unset($sizes['1536x1536']);    // отключение 2x среднего большого размера 
 	unset($sizes['2048x2048']);    // отключение 2x большого размера	
 	return $sizes;
-	
 }
 add_action('intermediate_image_sizes_advanced', 'shapeSpace_disable_image_sizes');
 
@@ -56,22 +59,24 @@ add_action('intermediate_image_sizes_advanced', 'shapeSpace_disable_image_sizes'
 add_filter('big_image_size_threshold', '__return_false');
 
 // отключение других размеров изображений
-function shapeSpace_disable_other_image_sizes() {
-	
+function shapeSpace_disable_other_image_sizes()
+{
+
 	// remove_image_size('post-thumbnail'); // отключение изображений, добавляемых через set_post_thumbnail_size() 
 	remove_image_size('another-size');   // отключение других добавляемых размеров изображений
-	
+
 }
 add_action('init', 'shapeSpace_disable_other_image_sizes');
 
 
 
 //Добавляєм нові таксономії
-add_action( 'init', 'true_register_taxonomy_sport' );
-function true_register_taxonomy_sport() {
+add_action('init', 'true_register_taxonomy_sport');
+function true_register_taxonomy_sport()
+{
 	$args = array(
 		'labels' => array(
-			'name' => 'Види спорту', 
+			'name' => 'Види спорту',
 			'singular_name' => 'Вид спорту',
 			'menu_name' => 'Види спорту'
 		),
@@ -81,14 +86,15 @@ function true_register_taxonomy_sport() {
 	$argsPost = array(
 		'post', 'essays', 'products'
 	);
-	register_taxonomy( 'sport', $argsPost, $args );
+	register_taxonomy('sport', $argsPost, $args);
 }
 
-add_action( 'init', 'true_register_taxonomy_year' );
-function true_register_taxonomy_year() {
+add_action('init', 'true_register_taxonomy_year');
+function true_register_taxonomy_year()
+{
 	$args = array(
 		'labels' => array(
-			'name' => 'Роки', 
+			'name' => 'Роки',
 			'singular_name' => 'Рік',
 			'menu_name' => 'Роки'
 		),
@@ -98,7 +104,7 @@ function true_register_taxonomy_year() {
 	$argsPost = array(
 		'post', 'essays', 'products'
 	);
-	register_taxonomy( 'year', $argsPost, $args );
+	register_taxonomy('year', $argsPost, $args);
 }
 
 
@@ -188,17 +194,25 @@ function my_extra_fields()
 function extra_fields_box_func($post)
 {
 ?>
-	<p><label><input type="text" name="extra[first-name]" value="<?php echo get_post_meta($post->ID, 'first-name', 1); ?>" style="width:50%" />Ім’я</label></p>
-	<p><label><input type="text" name="extra[last-name]" value="<?php echo get_post_meta($post->ID, 'last-name', 1); ?>" style="width:50%" />Прізвище</label></p>
-	<p><label><input type="text" name="extra[pseudonym]" value="<?php echo get_post_meta($post->ID, 'pseudonym', 1); ?>" style="width:50%" />Псевдонім</label></p>
-	<p><label><input type="date" name="extra[date_of_birth]" value="<?php echo get_post_meta($post->ID, 'date_of_birth', 1); ?>" style="width:50%" />Дата народження</label></p>
-	<p><label><input type="date" name="extra[date_of_death]" value="<?php echo get_post_meta($post->ID, 'date_of_death', 1); ?>" style="width:50%" />Дата смерті</label>
-	</p>
-	<p><label><input type="text" name="extra[place_of_birth]" value="<?php echo get_post_meta($post->ID, 'place_of_birth', 1); ?>" style="width:50%" />Місце
-			народження</label></p>
-	<p><label><input type="text" name="extra[rank]" value="<?php echo get_post_meta($post->ID, 'rank', 1); ?>" style="width:50%" />Звання</label></p>
+<p><label><input type="text" name="extra[first-name]" value="<?php echo get_post_meta($post->ID, 'first-name', 1); ?>"
+            style="width:50%" />Ім’я</label></p>
+<p><label><input type="text" name="extra[last-name]" value="<?php echo get_post_meta($post->ID, 'last-name', 1); ?>"
+            style="width:50%" />Прізвище</label></p>
+<p><label><input type="text" name="extra[pseudonym]" value="<?php echo get_post_meta($post->ID, 'pseudonym', 1); ?>"
+            style="width:50%" />Псевдонім</label></p>
+<p><label><input type="date" name="extra[date_of_birth]"
+            value="<?php echo get_post_meta($post->ID, 'date_of_birth', 1); ?>" style="width:50%" />Дата
+        народження</label></p>
+<p><label><input type="date" name="extra[date_of_death]"
+            value="<?php echo get_post_meta($post->ID, 'date_of_death', 1); ?>" style="width:50%" />Дата смерті</label>
+</p>
+<p><label><input type="text" name="extra[place_of_birth]"
+            value="<?php echo get_post_meta($post->ID, 'place_of_birth', 1); ?>" style="width:50%" />Місце
+        народження</label></p>
+<p><label><input type="text" name="extra[rank]" value="<?php echo get_post_meta($post->ID, 'rank', 1); ?>"
+            style="width:50%" />Звання</label></p>
 
-	<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
+<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
 <?php
 }
 
@@ -283,28 +297,28 @@ function register_post_products()
 
 function essaysData($arr)
 { ?>
-	<div class="date-of-birth row align-items-center">
-		<?php $i = 0;
+<div class="date-of-birth row align-items-center">
+    <?php $i = 0;
 		foreach ($arr as $key => $data) { ?>
-			<?php if (!empty($data['cmd'])) { ?>
-				<div class="row <?php if (($i % 2) == 0) {
+    <?php if (!empty($data['cmd'])) { ?>
+    <div class="row <?php if (($i % 2) == 0) {
 									echo 'even-row';
 								} else {
 									echo 'odd-row';
 								}
 								$i++; ?>">
-					<div class="essays-label col-6"><?php echo $data['label']; ?>: </div>
-					<div class="essays-data col-6"><?php if (!strtotime($data['cmd'])) {
+        <div class="essays-label col-6"><?php echo $data['label']; ?>: </div>
+        <div class="essays-data col-6"><?php if (!strtotime($data['cmd'])) {
 														echo $data['cmd'];
 													} else {
 														echo date('d.m.Y', $data['cmd']) . 'р.';
 													} ?>
-					</div>
-				</div>
-			<?php }
+        </div>
+    </div>
+    <?php }
 			?>
-		<?php } ?>
-	</div>
+    <?php } ?>
+</div>
 <?php }
 
 
@@ -369,4 +383,17 @@ function gallery_slider_template($images)
 	$output .= '</div>';
 	return $output;
 }
+
+
+
+function custom_single_template($single_template)
+{
+	if (in_category('ekskliuzyv')) {
+		$single_template = get_template_directory() . '/templates/exclusive-post.php';
+	}
+	return $single_template;
+}
+add_filter('single_template', 'custom_single_template');
+
+
 ?>

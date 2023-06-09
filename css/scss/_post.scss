@@ -6,5 +6,18 @@
 }
 
 .even-row {
-    background-color: lighten($color_grey, 40%);
+	background-color: lighten($color_grey, 40%);
+}
+
+.exclusive-post-img {
+	position: relative;
+	float: left;
+	margin: 0 15px 0 0;
+	display: block;
+
+	img {
+		min-height: 290px;
+		max-height: 290px;
+		width: auto;
+	}
 }

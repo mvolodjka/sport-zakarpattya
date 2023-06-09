@@ -43,6 +43,9 @@ main {
     padding: 15px;
 }
 
+img {
+    width: 100%
+}
 
 @import "_template";
 @import "_general_WP";
@@ -54,6 +57,7 @@ main {
 @import "_essays";
 @import "_essays_home";
 @import "_slider";
+@import "_block";
 
 @media (max-width: 576px) {
     @import "_media";

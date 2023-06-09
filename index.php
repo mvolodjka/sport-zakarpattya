@@ -22,7 +22,7 @@ if ($my_query->have_posts()) { ?>
             </div>
             <div class="col-7 essays-name">
                 <a href="<?php echo get_permalink(); ?>">
-                    <?php echo get_post_meta($post->ID, 'first-name', 1) . '<br>' . get_post_meta($post->ID, 'last-name', 1).'<br>'.get_post_meta($post->ID, 'date_of_birth', 1); ?>
+                    <?php echo get_post_meta($post->ID, 'first-name', 1) . '<br>' . get_post_meta($post->ID, 'last-name', 1) . '<br>' . get_post_meta($post->ID, 'date_of_birth', 1); ?>
                 </a>
             </div>
         </div>
