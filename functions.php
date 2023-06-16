@@ -4,18 +4,25 @@ add_theme_support('post-thumbnails');
 
 function enqueue_styles()
 {
-	wp_register_style('bootstrap-grid-style', get_template_directory_uri() . '/css/bootstrap-grid.min.css', false, '5.0.2');
-	wp_enqueue_style('bootstrap-grid-style');
+	// wp_register_style('bootstrap-grid-style', get_template_directory_uri() . '/css/bootstrap-grid.min.css', false, '5.0.2');
+	// wp_enqueue_style('bootstrap-grid-style');
 
-	wp_register_style('main-style', get_template_directory_uri() . '/css/main.css', array('bootstrap-grid-style'), '1.0.0');
+	wp_register_style('main-style', get_template_directory_uri() . '/css/style.css', false, '1.0.0');
 	wp_enqueue_style('main-style');
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_styles');
 
 
-wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-3.6.0.min.js', false, '3.6.0');
-wp_enqueue_script('jquery');
+// Реєстрація скрипту
+wp_register_script('index', get_template_directory_uri() . '/js/index.js', array(), '1.0.0', true);
+
+// Підключення скрипту
+function enqueue_index_script()
+{
+	wp_enqueue_script('index');
+}
+add_action('wp_footer', 'enqueue_index_script');
 
 // wp_register_script('jquery', 'https://code.jquery.com/jquery-3.6.0.js', false, '3.6.0');
 // wp_enqueue_script('jquery');
@@ -324,15 +331,15 @@ function essaysData($arr)
 
 
 //slick
-function enqueue_slick_scripts()
-{
-	wp_register_style('slick', get_template_directory_uri() . '/assets/libs/slick/slick.css', array('bootstrap-grid-style'), '1.8.1');
-	wp_enqueue_style('slick');
+// function enqueue_slick_scripts()
+// {
+// 	wp_register_style('slick', get_template_directory_uri() . '/assets/libs/slick/slick.css', array('bootstrap-grid-style'), '1.8.1');
+// 	wp_enqueue_style('slick');
 
-	wp_register_script('slick-scripts', get_template_directory_uri() . '/assets/libs/slick/slick.min.js', array('jquery'), '3.6.0', true);
-	wp_enqueue_script('slick-scripts');
-}
-add_action('wp_enqueue_scripts', 'enqueue_slick_scripts');
+// 	wp_register_script('slick-scripts', get_template_directory_uri() . '/assets/libs/slick/slick.min.js', array('jquery'), '3.6.0', true);
+// 	wp_enqueue_script('slick-scripts');
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_slick_scripts');
 
 // фотогалерея-слайдер
 function gallery_slider($output, $attr)
@@ -355,17 +362,17 @@ add_filter('post_gallery', 'gallery_slider', 10, 2);
 function gallery_slider_template($images)
 {
 
-	$slick_init = 'jQuery( document ).ready( function ($) {
-		$( ".single-item" ).slick( {
-			dots: true,
-			infinite: true,
-			speed: 300,
-			slidesToShow: 1,
-			adaptiveHeight: true
-		} );
-	} );
-	';
-	wp_add_inline_script('slick-scripts', $slick_init);
+	// $slick_init = 'jQuery( document ).ready( function ($) {
+	// 	$( ".single-item" ).slick( {
+	// 		dots: true,
+	// 		infinite: true,
+	// 		speed: 300,
+	// 		slidesToShow: 1,
+	// 		adaptiveHeight: true
+	// 	} );
+	// } );
+	// ';
+	// wp_add_inline_script('slick-scripts', $slick_init);
 
 	// ob_start();
 	// include 'gallery-slider.php';
