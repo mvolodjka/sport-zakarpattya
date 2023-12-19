@@ -386,7 +386,7 @@ function gallery_slider_template($images)
 		$description = $image->post_content; // описание изображения
 
 		$output .= '<div class="slider slider-' . $key . '"><div class="img-slick"><img src="' . $src . '"alt="' . $alt . '" /></div><div class="caption-slick">' . $caption . '</div></div>';
-	}
+	}	
 	$output .= '</div>';
 	return $output;
 }
